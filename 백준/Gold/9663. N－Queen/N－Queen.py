@@ -4,7 +4,7 @@ def NQueenFound(level):
     global count
     global position
 
-    if level == n:
+    if level == n: # Level이 n이면 횟수 1 증가
         count += 1
         position[level - 1] = -1
         return 1
@@ -17,9 +17,9 @@ def NQueenFound(level):
 
         position[level] = -1
 
-def Promising(posi, level):
+def Promising(posi, level): # 가능한지 확인하는 함수
     for i in range(level):
-        if posi == position[i] or level - i == abs(posi - position[i]):
+        if posi == position[i] or level - i == abs(posi - position[i]): # 대각선과 일직선상에 없는지 확인
             return False
     return True
 
