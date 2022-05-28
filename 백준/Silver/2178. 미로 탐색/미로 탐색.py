@@ -5,7 +5,6 @@ input = sys.stdin.readline
 def bfs(dq):
     while dq:
         y, x, cnt = dq.popleft()
-        # visited[y][x] = True
         for d in dir:
             yy = y + d[0]
             xx = x + d[1]
@@ -18,11 +17,11 @@ def bfs(dq):
                 dq.append((yy, xx, cnt + 1))
                 maze[yy][xx] = -1
 
+
 n, m = map(int, input().split())
 maze = [list(map(int, input().strip())) for _ in range(n)]
 
 dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 dq = deque([(0, 0, 1)])
-# visited = [[False] * m for _ in range(n)]
 
 bfs(dq)
